@@ -1,0 +1,27 @@
+server {
+
+    listen 443 ssl;
+
+    listen [::]:443 ssl;
+    root /var/www/wordpress;
+
+    include snippets/self-signed.conf;
+
+    include snippets/ssl-params.conf;
+
+
+    server_name _;
+
+    index index.php;
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+ location ~ \.php$ {
+root /var/www/wordpress;
+fastcgi_pass wordpress:9000;
+fastcgi_index index.php;
+include fastcgi_params;
+fastcgi_param SCRIPT_FILENAME /var/www/wordpress$fastcgi_script_name;
+}
+}

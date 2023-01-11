@@ -46,13 +46,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/moha/data'
+      device: '/home/mbehhar/data'
   mariadb-vol:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/moha/mariadb_data'
+      device: '/home/mbehhar/mariadb_data'
     
 
 networks:

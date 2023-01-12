@@ -1,13 +1,20 @@
-all: create_folders copy_files
+COMPOSE_FILE=./srcs/docker-compose.yml
 
-create_folders:
-ifneq ("$(wildcard /home/moha/data)","")
-	echo "The /home/moha/data directory already exists."
-else
-	mkdir -p /home/moha/data
-endif
-ifneq ("$(wildcard /home/moha/data/mariadb_data)","")
-	echo "The /home/moha/data/mariadb_data directory already exists."
-else
-	mkdir -p /home/moha/data/mariadb_data
-endif
+
+all: run
+
+
+run: 
+	sudo mkdir -p /home/moha/data
+	sudo mkdir -p /home/moha/mariadb_data
+	docker compose -f $(COMPOSE_FILE) up --build
+
+up:
+	sudo mkdir -p /home/moha/data
+	sudo mkdir -p /home/moha/mariadb_data
+	docker compose -f $(COMPOSE_FILE) up --build
+
+down:
+	docker compose -f $(COMPOSE_FILE) down
+	sudo rm -rf /home/moha/data
+	sudo rm -rf /home/moha/mariadb_data

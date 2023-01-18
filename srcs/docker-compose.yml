@@ -14,6 +14,19 @@ services:
       - "inception"
     env_file:
       - .env
+    
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
+    ports:
+      - "3306"
+    env_file:
+      - .env
+    volumes:
+      - "mariadb-vol:/var/lib/mysql"
+    networks:
+      - "inception"
+
 
   wordpress:
     depends_on:
@@ -29,17 +42,6 @@ services:
     networks:
       - "inception"
 
-  mariadb:
-    build: ./requirements/mariadb
-    container_name: mariadb
-    ports:
-      - "3306"
-    env_file:
-      - .env
-    volumes:
-      - "mariadb-vol:/var/lib/mysql"
-    networks:
-      - "inception"
 
 
 volumes:

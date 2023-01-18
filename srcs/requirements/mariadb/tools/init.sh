@@ -1,9 +1,6 @@
 #!/bin/sh
 set -x
 
-mysql_install_db
-
-/etc/init.d/mysql start
 
 #Check if the database exists
 
@@ -13,6 +10,9 @@ then
 	echo "Database already exists"
 else
 
+mysql_install_db
+
+/etc/init.d/mysql start
 # Set root option so that connexion without root password is not possible
 
 mysql_secure_installation <<_EOF_
@@ -52,8 +52,8 @@ echo "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE;" | mysql -u root
 echo "GRANT ALL ON $MYSQL_DATABASE.* TO $MYSQL_USER@'%';" | mysql -u root
 
 
-fi
 
 /etc/init.d/mysql stop
+fi
 
 exec "$@"

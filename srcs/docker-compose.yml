@@ -16,6 +16,8 @@ services:
       - .env
 
   wordpress:
+    depends_on:
+      - "mariadb"
     build: ./requirements/wordpress
     container_name: wordpress
     env_file:

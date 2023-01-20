@@ -50,13 +50,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/moha/data/wordpress'
+      device: '/home/mbehhar/data/wordpress'
   mariadb-vol:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/moha/data/mariadb'
+      device: '/home/mbehhar/data/mariadb'
     
 
 networks:

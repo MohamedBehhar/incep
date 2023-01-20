@@ -7,7 +7,9 @@ all: run
 run:
 	sudo mkdir -p /home/mbehhar/data/wordpress
 	sudo mkdir -p /home/mbehhar/data/mariadb
+	echo "127.0.0.1    https://mbehhar.42.fr" | sudo tee -a /etc/hosts
 	docker-compose -f $(COMPOSE_FILE) up --build
+
 
 up:
 	sudo mkdir -p /home/mbehhar/data/wordpress

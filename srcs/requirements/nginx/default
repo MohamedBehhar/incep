@@ -10,7 +10,7 @@ server {
     include snippets/ssl-params.conf;
 
 
-    server_name _;
+    server_name mbehhar.42.fr  www.mbehhar.42.fr;
 
     index index.php;
     location / {

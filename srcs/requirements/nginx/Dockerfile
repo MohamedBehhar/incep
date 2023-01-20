@@ -28,8 +28,6 @@ RUN mv /var/www/html /var/www/wordpress
 RUN chmod -R 755 /var/www/wordpress/
 RUN adduser --system --no-create-home --group nginx
 RUN chown -R nginx:nginx /var/www/wordpress/
-# installing systemctl 
-# RUN apt install systemctl -y 
-# restarting nginx
+
 
 CMD ["nginx", "-g", "daemon off;"]

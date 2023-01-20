@@ -15,7 +15,6 @@ RUN apt-get update && apt-get -y install mariadb-server mariadb-client \
 EXPOSE 3306
 
 COPY ./tools/init.sh /
-COPY ./backup/wordpress.sql /usr/local/bin/
 RUN chmod 777 ./init.sh
 ENTRYPOINT ["/init.sh"]
 

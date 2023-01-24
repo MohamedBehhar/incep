@@ -38,7 +38,7 @@ echo "************************"
 
 wp config create
 
-wp core install --url=https://localhost --title=Inception --admin_user=${MYSQL_ROOT_PASSWORD} --admin_password=${MYSQL_ROOT_PASSWORD} --admin_email=mbehhar@student.1337.ma --allow-root
+wp core install --url=https://localhost --title=Inception --admin_user=${ADMIN_USER} --admin_password=${MYSQL_ROOT_PASSWORD} --admin_email=mbehhar@student.1337.ma --allow-root
 wp user create ${MYSQL_USER} behharmohamed18@gmail.com --user_pass=${MYSQL_PASSWORD} --allow-root
 
 

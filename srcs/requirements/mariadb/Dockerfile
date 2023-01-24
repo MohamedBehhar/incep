@@ -19,5 +19,4 @@ RUN chmod 777 ./init.sh
 ENTRYPOINT ["/init.sh"]
 
 #Command to launch mariadb and enable the database to listen globally
-
 CMD ["mysqld", "--bind-address=0.0.0.0"]

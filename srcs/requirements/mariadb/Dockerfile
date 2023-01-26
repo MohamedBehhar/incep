@@ -1,9 +1,6 @@
-#Containers are built using Debian buster
-
 FROM debian:buster
 
 #Install necessary package
-
 RUN apt-get update && apt-get -y install mariadb-server mariadb-client \
 && rm -rf /var/lib/apt/lists/* \
 # purge and re-create /var/lib/mysql with appropriate ownership

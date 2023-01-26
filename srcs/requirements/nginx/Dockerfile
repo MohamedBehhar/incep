@@ -24,10 +24,6 @@ RUN nginx -t
 
 # creating the symbolic link between sites-available and sites-enabled
 RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-RUN mv /var/www/html /var/www/wordpress
-RUN chmod -R 755 /var/www/wordpress/
-RUN adduser --system --no-create-home --group nginx
-RUN chown -R nginx:nginx /var/www/wordpress/
 
 
 CMD ["nginx", "-g", "daemon off;"]

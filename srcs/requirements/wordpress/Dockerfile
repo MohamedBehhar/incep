@@ -1,4 +1,3 @@
-
 FROM	debian:buster
 
 WORKDIR /var/www/html/wordpress
@@ -16,7 +15,6 @@ RUN apt-get install wget && wget https://wordpress.org/latest.tar.gz && \
 	rm -rf latest.tar.gz wordpress
 
 
-COPY ./conf/wp-config.php /var/www/wordpress
 COPY ./tools/entrypoint.sh .
 ENTRYPOINT ["./entrypoint.sh"]
 
